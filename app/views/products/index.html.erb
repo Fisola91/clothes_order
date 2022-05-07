@@ -1,2 +1,15 @@
-<%= react_component("ProductList",
-{product: Product}) %>
+<div>
+  <h2>New Arrival</h2>
+  <div class="products">
+    <% @products.each do |product| %>
+    <h3><%= product.name %></h3>
+    <div>
+      <span><%= product.description %></span>
+      <span class="price">$<%= product.price %></span>
+    </div>
+    <%=  link_to "Add To Cart", new_order_path %>
+    <% end %>
+
+  </div>
+
+</div>
