@@ -1,5 +1,6 @@
 <div>
   <h2>New Arrival</h2>
+  <p>You have sviusited this site <%= pluralize @visit_count, "times" %></p>
   <div class="products">
     <% @products.each do |product| %>
       <h3><%= product.name %></h3>

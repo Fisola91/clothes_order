@@ -2,11 +2,6 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-  end
-
-  def show
-  end
-
-  def create
+    @visit_count = 1
   end
 end
