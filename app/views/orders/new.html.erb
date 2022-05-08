@@ -28,11 +28,39 @@
             <button>Remove</button>
           </div>
         </div>
-
+        <div class="cart-product-price">$<%= @product.price %></div>
+        <div class="cart-product-quantity">
+          <%= simple_form @order do |f| %>
+            <%= f.input :@product.orders.quantity, type="number" %>
+          <% end %>
+        <div class="cart-total-product-price">
+          <% if  @product.orders.quantity >= 3 %>
+            <%= ((100 - @discount) / 100) * (@product.orders.quantity * @product.price) %>
+          <% else  %>
+          <%= @product.orders.quantity * @product.price%>
+          <% end %>
+        </div>
+        </div>
       </div>
       <% end %>
     </div>
+    <div class="cart-summary">
+      <button class="clear-cart">Clear Cart</button>
+      <div class="cart-checkout">
+        <div class="subtotal">
+          <span>Subtotal</span>
+          <span class="amount">$<%= @product.orders.total %></span>
+        </div>
+        <p>Taxes and shipping calculated at checkout</p>
+        <button>Check out</button>
+        <div class="continue-shopping">
+          <%= link_to "/" do %>
+            <i class="bi bi-arrow-left"></i>
+            <span>continue shopping</span>
+          <% end %>
+        </div>
+      </div>
+    </div>
   <% end %>
-
 
 </div>

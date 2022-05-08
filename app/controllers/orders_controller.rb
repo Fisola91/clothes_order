@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   def new
     @products = Product.all
     @product = Product.new
+    @discount_percentage = 30
   end
 
   def create
@@ -11,7 +12,6 @@ class OrdersController < ApplicationController
   end
 
   def checkout
-
   end
 
   def item
