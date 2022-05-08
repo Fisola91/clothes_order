@@ -10,6 +10,28 @@
     <% end %>
     </div>
   </div>
+  <% else %>
+    <div class="titles">
+      <h3 class="product-title">Product</h3>
+      <h3 class="price">Price</h3>
+      <h3 class="quantity">Quantity</h3>
+      <h3 class="total">Total</h3>
+    </div>
+    <div class="cart-items">
+      <% @products.each do |product| %>
+      <div class="cart_item">
+        <div class="cart-product">
+          <%= image_tag "Denim_shirt.jpg", :class=> "medium-logo" %>
+          <div>
+            <h3><%= @product.name %></h3>
+            <p><%= @product.description %></p>
+            <button>Remove</button>
+          </div>
+        </div>
+
+      </div>
+      <% end %>
+    </div>
   <% end %>
 
 
