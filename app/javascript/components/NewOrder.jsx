@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types"
 
-const Hello = () => {
+const Products = ({name}) => {
   return (
     <div>
-      <h1>HELLO NEW ORDER</h1>
-      <h2>HOW ARE YOU</h2>
+      <h1>HELLO</h1>
+      <h1>{name}</h1>
     </div>
   )
 }
 
-export default Hello;
+export default Products;
