@@ -1,20 +1,25 @@
 class OrdersController < ApplicationController
-
   #
-  def cart
+  def new
+    @products = Product.all
     @product = Product.new
-
   end
 
   def create
     @order = order.new(order_params)
-    render 'confirm', product_id: product.id
+    render 'checkout', product_id: product.id
   end
 
-  def confirm
+  def checkout
+
   end
 
   def item
   end
 
+  private
+
+  def order_params
+    params.require(:order).permit(:quantity)
+  end
 end
