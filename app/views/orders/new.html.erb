@@ -30,7 +30,7 @@
         </div>
         <div class="cart-product-price">$<%= @product.price %></div>
         <div class="cart-product-quantity">
-          <%= simple_form @order do |f| %>
+          <%= simple_form_for @order do |f| %>
             <%= f.input :@product.orders.quantity, type="number" %>
           <% end %>
         <div class="cart-total-product-price">
