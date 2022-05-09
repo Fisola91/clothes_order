@@ -2,7 +2,7 @@
   <h2>Shopping Cart</h2>
   <% if @product.orders.length == 0  %>
   <div class="cart-empty">
-    <p>Your cart is currently empty</p>
+    <p>Your cart is currently empty. You can add a new cart</p>
     <div class="start-shopping">
     <%= link_to products_path do %>
         <i class="bi bi-arrow-left"></i>
