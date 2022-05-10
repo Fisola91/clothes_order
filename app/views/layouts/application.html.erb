@@ -3,6 +3,7 @@
   <head>
     <title>ClothesOrder</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +12,17 @@
   </head>
 
   <body>
+  <div class="nav-bar">
+    <h2><%= link_to "Online Shop", products_path%> </h2>
+  <div class="nav-bag">
+    <%= link_to new_order_path do %>
+        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+    <% end %>
+    <span class="bag-quantity">
+      <span>3</span>
+    </span>
+  </div>
+</div>
     <%= yield %>
   </body>
 </html>

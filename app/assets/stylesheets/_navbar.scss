@@ -4,4 +4,33 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 8 4rem;
+}
+
+.nav-bar h2 {
+  font-size: 40px;
+}
+.nav-bar a {
+  color: white;
+}
+
+.nav-bag {
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+}
+
+.bag-quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15px;
+  width: 15px;
+  background: yellow;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  margin-left: 5px;
+
 }
