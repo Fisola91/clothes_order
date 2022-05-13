@@ -3,16 +3,18 @@
   <p>You have visited this site <%= pluralize @visit_count, "times" %></p>
   <div class="products">
     <% @products.each do |product| %>
-      <h3><%= product.name %></h3>
-      <% if product.photo.attached? %>
-        <%= cl_image_tag product.photo.key, :class=> "medium-logo", width: 100 %>
-      <% end %>
-    <div>
-      <span><%= product.description %></span>
-      <span class="price">Price: $<%= product.price %></span>
-    </div>
+      <div class="product">
+        <h3><%= product.name %></h3>
+        <% if product.photo.attached? %>
+          <%= cl_image_tag product.photo.key, :class=> "medium-logo", width: 100 %>
+        <% end %>
+        <div>
+          <span class="details"><%= product.description %></span>
+          <span class="price">Price: $<%= product.price %></span>
+        </div>
+        <button><%=  link_to "Add To Cart", new_order_path %></button>
+      </div>
 
-    <%=  link_to "Add To Cart", new_order_path %>
-    <% end %>
+      <% end %>
   </div>
 </div>
