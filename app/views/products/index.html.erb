@@ -4,7 +4,9 @@
   <div class="products">
     <% @products.each do |product| %>
       <h3><%= product.name %></h3>
-      <%= image_tag "Denim_shirt.jpg", :class=> "medium-logo", width: 100 %>
+      <% if product.photo.attached? %>
+        <%= cl_image_tag product.photo.key, :class=> "medium-logo", width: 100 %>
+      <% end %>
     <div>
       <span><%= product.description %></span>
       <span class="price">Price: $<%= product.price %></span>
