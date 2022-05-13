@@ -5,7 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#file = https://www.istockphoto.com/photo/t-shirt-isolated-on-white-background-gm177412921-21296638
+Product.create!(name: "Blue T-shirt", description: "Blank blue wrinkled t-shirt mockup", price: 6.99)
 
-Product.create!(name: "African Purple", description: "African wax print fabric", price: 6.99)
-Product.create!(name: "African Bogolan", description: "Mud cloth - Brown", price: 6.99)
-Product.create!(name: "African-Made Kente", description: "Ankara", price: 6.99)
+# file = https://www.istockphoto.com/photo/red-v-neck-shirt-design-template-gm1170500527-323921717
+Product.create!(name: "Red T-shirt", description: "Red v-neck t-shirt mock up", price: 6.99)
+
+#file = https://www.istockphoto.com/photo/blank-white-wrinkled-t-shirt-mockup-front-view-gm1307224792-397560626
+Product.create!(name: "Blank T-shirt", description: "Blank white wrinkled t-shirt mockup", price: 6.99)
