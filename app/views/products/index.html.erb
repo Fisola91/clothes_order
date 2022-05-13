@@ -6,11 +6,11 @@
       <div class="product">
         <h3><%= product.name %></h3>
         <% if product.photo.attached? %>
-          <%= cl_image_tag product.photo.key, :class=> "medium-logo", width: 100 %>
+          <%= cl_image_tag product.photo.key %>
         <% end %>
         <div>
           <span class="details"><%= product.description %></span>
-          <span class="price">Price: $<%= product.price %></span>
+          <span class="price">$<%= product.price %></span>
         </div>
         <button><%=  link_to "Add To Cart", new_order_path %></button>
       </div>
