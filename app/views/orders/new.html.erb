@@ -4,10 +4,10 @@
   <div class="cart-empty">
     <p>Your cart is currently empty.</p>
     <div class="start-shopping">
-    <%= link_to products_path do %>
-        <i class="bi bi-arrow-left"></i>
+      <%= link_to products_path do %>
+        <i class="bi bi-arrow-left" aria-hidden="true"></i>
         <span>Start shopping</span>
-    <% end %>
+      <% end %>
     </div>
   </div>
   <% else %>
