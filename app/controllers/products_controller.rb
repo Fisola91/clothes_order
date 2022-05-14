@@ -10,18 +10,22 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
-  def discount_percentage
-    @discount_percentage = 30
+  def add_to_cart
+    id = params[:id].to_i
+    session[:cart] << id unless session[:cart].include?(id)
+    @cart = session[:cart]
+    redirect_to products_path
   end
 
-  def add_to_cart
-
+  def discount_percentage
+    @discount_percentage = 30
   end
 
  private
 
  def initialize_session
   session[:visit_count] ||= 0 # This initialize the visit count on first visit
+  session[:cart] ||= []
  end
 
  def increment_visit_count

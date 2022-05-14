@@ -15,11 +15,11 @@
   <div class="nav-bar">
     <h2><%= link_to "Online Shop", products_path%> </h2>
   <div class="nav-bag">
-    <%= link_to new_product_path do %>
+    <%= link_to products_path(@products) do %>
         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
     <% end %>
     <span class="bag-quantity">
-      <span>3</span>
+      <span><%= @cart %></span>
     </span>
   </div>
 </div>
