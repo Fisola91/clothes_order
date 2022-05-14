@@ -6,6 +6,18 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def new
+    @product = Product.new
+  end
+
+  def discount_percentage
+    @discount_percentage = 30
+  end
+
+  def add_to_cart
+
+  end
+
  private
 
  def initialize_session
