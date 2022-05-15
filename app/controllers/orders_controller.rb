@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
   #
+  def new
+    @order = Order.new
 
+  end
   def create
     @order = order.new(order_params)
     render 'checkout', product_id: product.id

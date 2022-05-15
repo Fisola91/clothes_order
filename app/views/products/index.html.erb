@@ -1,6 +1,6 @@
 <div class="home-container">
 <h2>Shooping cart</h2>
-    <%= debug session[:cart] %>
+    <%= @cart %>
   <h2>New Arrival</h2>
   <p>You have visited this site <%= pluralize @visit_count, "times" %></p>
   <div class="products">
@@ -14,7 +14,7 @@
           <span class="details"><%= product.description %></span>
           <span class="price">Price: $<%= product.price %></span>
         </div>
-        <button><%=  link_to "Add To Cart", add_to_cart_path(product.id), method: :post%></button>
+        <button><%=  link_to "Add To Cart", cart_path(product), method: :post%></button>
       </div>
 
       <% end %>

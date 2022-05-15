@@ -1,6 +1,6 @@
 <div class="cart-container">
   <h2>Shopping Cart</h2>
-  <% if @product.orders.length == 0  %>
+  <% if @cart.length == 0  %>
   <div class="cart-empty">
     <p>Your cart is currently empty.</p>
     <div class="start-shopping">
@@ -18,19 +18,30 @@
       <h3 class="total">Total</h3>
     </div>
     <div class="cart-items">
-      <% @products.each do |product| %>
+
       <div class="cart_item">
         <div class="cart-product">
-          <%= image_tag "Denim_shirt.jpg", :class=> "medium-logo" %>
           <div>
-            <h3><%= @product.name %></h3>
-            <p><%= @product.description %></p>
-            <button>remove</button>
+            <div class="products">
+              <% @cart.each do |product| %>
+                <div class="product">
+                  <h3><%= product.name %></h3>
+                  <% if product.photo.attached? %>
+                    <%= cl_image_tag product.photo.key %>
+                  <% end %>
+                  <div>
+                    <span class="details"><%= product.description %></span>
+                    <span class="price">Price: $<%= product.price %></span>
+                  </div>
+                  <button><%=  link_to "Add To Cart", add_to_cart_path(product.id), method: :post%></button>
+                </div>
+            <% end %>
+            </div>
           </div>
         </div>
         <div class="cart-product-price">$<%= @product.price %></div>
         <div class="cart-product-quantity">
-          <%= simple_form_for @order do |f| %>
+          <%= simple_form @order do |f| %>
             <%= f.input :@product.orders.quantity, type="number" %>
           <% end %>
         <div class="cart-total-product-price">
@@ -42,7 +53,7 @@
         </div>
         </div>
       </div>
-      <% end %>
+    <% end %>
     </div>
     <div class="cart-summary">
       <button class="clear-cart">Clear Cart</button>
