@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
   #end
 
   def load_cart
-    @cart = session[:cart]
+    @cart = session[:cart].count
   end
 
   def discount_percentage
