@@ -18,22 +18,20 @@
       <h3 class="total">Total</h3>
     </div>
       <div class="products">
-        <% @cart.length > 0 %>
-        <%= @products.each do |product| %>
+
+
           <div class="product">
-            <h3><%= product.name %></h3>
-              <% if product.photo.attached? %>
-                  <%= cl_image_tag product.photo.key %>
+            <h3><%= @product.name %></h3>
+              <% if @product.photo.attached? %>
+                  <%= cl_image_tag @product.photo.key %>
               <% end %>
               <div>
-                <span class="details"><%= product.description %></span>
-                <span class="price">Price: $<%= product.price %></span>
-              </div>
-              <button><%=  link_to "Add To Cart", cart_path(product), method: :post%></button>
-              </div>
+                <span class="details"><%= @product.description %></span>
+                <span class="price">Price: $<%= @product.price %></span>
+
 
           </div>
-        <% end %>
+
       </div>
   <% end %>
 

@@ -1,11 +1,15 @@
 class ProductsController < ApplicationController
   before_action :initialize_session
   before_action :increment_visit_count, only: :index
-  before_action :product, only: :cart
-  before_action :load_cart,
+  before_action :load_cart
 
   def index
     @products = Product.all
+
+  end
+
+  def new
+    @product = Product.find_by(params[:id])
   end
 
 
@@ -17,46 +21,37 @@ class ProductsController < ApplicationController
   #end
 
   def add_to_cart
-    id = params[:id].to_i
-    session[:cart] << id unless session[:cart].include?(id)
-    redirect_to cart_path(@product)
+    session[:cart] << session[:cart].count unless session[:cart].include?(product_id)
+    redirect_to new_product_path
   end
 
-  #def cart
-    #@products = Product.all
-  #end
 
   def load_cart
-    @cart = session[:cart].count
+    @count = session[:cart].count # This count number of product in the array
+    @cart = session[:cart]
   end
 
   def discount_percentage
     @discount_percentage = 30
   end
 
- private
+  private
 
- #def product
-  #Product.find_by(params[:name])
-#end
+  def product
+    Product.find_by(params[:name])
+  end
 
+  def order_params
+    params.require(:order).permit(:quantity)
+  end
 
- def order_params
-  params.require(:order).permit(:quantity)
- end
+  def initialize_session
+    session[:visit_count] ||= 0 # This initialize the visit count on first visit
+    session[:cart] ||= []
+  end
 
- def initialize_session
-  session[:visit_count] ||= 0 # This initialize the visit count on first visit
-  session[:cart] ||= []
- end
-
- def increment_visit_count
-  session[:visit_count] += 1 # increment the count with each visit
-  @visit_count = session[:visit_count]
- end
-
-
-
-
-
+  def increment_visit_count
+    session[:visit_count] += 1 # increment the count with each visit
+    @visit_count = session[:visit_count]
+  end
 end
