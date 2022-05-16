@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :products, only: [:index ]
-  resources :orders, only: [:create]
+  resources :products
+  resources :orders
 
   post '/cart', to: "products#cart", as: 'cart'
 
