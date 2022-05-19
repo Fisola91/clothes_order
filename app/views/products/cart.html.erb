@@ -28,6 +28,7 @@
               <div>
                 <span class="details"><%= product.description %></span>
                 <span class="price">Price: $<%= product.price %></span>
+                <%= link_to "remove", products_path, method: :delete %>
 
 
           </div>

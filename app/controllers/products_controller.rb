@@ -36,10 +36,11 @@ class ProductsController < ApplicationController
   # Delete item from the array when item is not needed
   def destroy
     @cart.each do |cart|
-    if cart.destroy && @cart.length == 0
-      redirect_to product_path
-    elsif cart.destroy && @cart.length > 0
-      render cart_path
+      if cart.destroy && @cart.length == 0
+        redirect_to products_path
+      elsif cart.destroy && @cart.length > 0
+        render cart_path
+      end
     end
   end
 
