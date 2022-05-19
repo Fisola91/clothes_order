@@ -19,19 +19,19 @@
     </div>
       <div class="products">
 
-
+          <%= @carts.each do |product| %>
           <div class="product">
-            <h3><%= @product.name %></h3>
-              <% if @product.photo.attached? %>
-                  <%= cl_image_tag @product.photo.key %>
+            <h3><%= product.name %></h3>
+              <% if product.photo.attached? %>
+                  <%= cl_image_tag product.photo.key %>
               <% end %>
               <div>
-                <span class="details"><%= @product.description %></span>
-                <span class="price">Price: $<%= @product.price %></span>
+                <span class="details"><%= product.description %></span>
+                <span class="price">Price: $<%= product.price %></span>
 
 
           </div>
-
+        <% end %>
       </div>
   <% end %>
 

@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
     render 'checkout', product_id: product.id
   end
 
+  #EACH ITEM ADDED SHOULD APPEAR
   def checkout
   end
 

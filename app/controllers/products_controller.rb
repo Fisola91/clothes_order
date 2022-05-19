@@ -8,10 +8,6 @@ class ProductsController < ApplicationController
 
   end
 
-  def cart
-    @product = Product.find(params[:product_id])
-  end
-
 
 
   #def create
@@ -20,15 +16,19 @@ class ProductsController < ApplicationController
    # render 'checkout', product_id: product.id
   #end
 
+  # Add product once to the cart array
   def add_to_cart
-    session[:cart] << session[:cart].count unless session[:cart].include?(product_id)
-    redirect_to new_product_path
+    session[:cart] << session[:cart] unless session[:cart].include?(product_id)
+    redirect_to cart_path
   end
 
 
   def load_cart
     @count = session[:cart].count # This count number of product in the array
     @cart = session[:cart]
+  end
+  def cart
+    @carts = Product.where(id: session[:cart])
   end
 
   def discount_percentage
