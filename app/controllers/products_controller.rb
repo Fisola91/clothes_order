@@ -8,8 +8,8 @@ class ProductsController < ApplicationController
 
   end
 
-  def new
-    @product = Product.find_by(params[:id])
+  def cart
+    @product = Product.find(params[:product_id])
   end
 
 
@@ -37,9 +37,7 @@ class ProductsController < ApplicationController
 
   private
 
-  def product
-    Product.find_by(params[:name])
-  end
+
 
   def order_params
     params.require(:order).permit(:quantity)
