@@ -27,8 +27,20 @@ class ProductsController < ApplicationController
     @count = session[:cart].count # This count number of product in the array
     @cart = session[:cart]
   end
+
+  #List of selected items
   def cart
-    @carts = Product.where(id: session[:cart])
+    @carts = Product.where(id: @cart)
+  end
+
+  # Delete item from the array when item is not needed
+  def destroy
+    @cart.each do |cart|
+    if cart.destroy && @cart.length == 0
+      redirect_to product_path
+    elsif cart.destroy && @cart.length > 0
+      render cart_path
+    end
   end
 
   def discount_percentage
