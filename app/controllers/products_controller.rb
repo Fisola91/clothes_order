@@ -26,12 +26,13 @@ class ProductsController < ApplicationController
 
   def load_cart
     @count = session[:cart].count # This count number of product in the array
-    @cart = session[:cart].flatten
+    @cart = session[:cart]
   end
 
   #List of selected items
   def cart
-    @carts = @cart
+    @carts = @cart.flatten
+    binding.pry
   end
 
   # Delete item from the array when item is not needed

@@ -29,6 +29,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
 gem 'simple_form'
+gem 'pry-rails', :group => :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

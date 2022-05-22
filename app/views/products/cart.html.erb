@@ -18,19 +18,20 @@
       <h3 class="total">Total</h3>
     </div>
       <div class="products">
-
-          <%= @carts.each do |product| %>
+          <%= @carts.map do |product| %>
           <div class="product">
-            <h3><%= product.name %></h3>
-              <% if product.photo.attached? %>
+            <h3><%= product["name"] %></h3>
+              <% if product["photo"] %>
                   <%= cl_image_tag product.photo.key %>
               <% end %>
               <div>
-                <span class="details"><%= product.description %></span>
-                <span class="price">Price: $<%= product.price %></span>
+                <span class="details"><%= product["description"] %></span>
+                <span class="price">Price: $<%= product["price"] %></span>
                 <%= link_to "remove", products_path, method: :delete %>
+              </div>
+
           </div>
-        <% end %>
+          <% end %>
       </div>
   <% end %>
 
