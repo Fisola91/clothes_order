@@ -18,7 +18,8 @@ class ProductsController < ApplicationController
 
   # Add product once to the cart array
   def add_to_cart
-    session[:cart] << session[:cart] unless session[:cart].include?(product_id)
+    id = Product.where(params[:id])
+    session[:cart] << id unless session[:cart].include?(id)
     redirect_to cart_path
   end
 
@@ -34,6 +35,7 @@ class ProductsController < ApplicationController
   end
 
   # Delete item from the array when item is not needed
+  # To be implemented later
   def destroy
     @cart.each do |cart|
       if cart.destroy && @cart.length == 0
@@ -49,8 +51,6 @@ class ProductsController < ApplicationController
   end
 
   private
-
-
 
   def order_params
     params.require(:order).permit(:quantity)
