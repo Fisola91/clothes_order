@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
 
   def load_cart
     @count = session[:cart].count # This count number of product in the array
-    @cart = session[:cart]
+    @cart = session[:cart].flatten
   end
 
   #List of selected items
