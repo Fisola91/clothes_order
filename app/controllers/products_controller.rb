@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
 
   # Add product once to the cart array
   def add_to_cart
-    id = Product.where(params[:id])
+    id = Product.find(params[:product_id])
     session[:cart] << id unless session[:cart].include?(id)
     redirect_to cart_path
   end
@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
 
   #List of selected items
   def cart
-    @carts = Product.where(id: @cart)
+    @carts = @cart
   end
 
   # Delete item from the array when item is not needed
