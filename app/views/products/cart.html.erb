@@ -21,8 +21,8 @@
           <%= @carts.map do |product| %>
           <div class="product">
             <h3><%= product["name"] %></h3>
-              <% if product["photo"] %>
-                  <%= cl_image_tag product.photo.key %>
+              <% if product["photo.attached?"] %>
+                  <%= cl_image_tag product["photo.key"] %>
               <% end %>
               <div>
                 <span class="details"><%= product["description"] %></span>
