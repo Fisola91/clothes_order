@@ -1,13 +1,16 @@
 <div class="home-container">
-    <details>
-      <summary>Shopping cart</summary>
+  <details>
+    <summary>Shopping cart</summary>
+    <% if @cart.empty?%>
+      <p>Cart item is empty</p>
+    <% else %>
       <ul>
         <% @products.each do |product| %>
-            <li><%= product.name %> - <p><%=  link_to "Remove", remove_from_cart_path(product), method: :delete %></p></li>
-          <% end %>
+          <li><%= product.name %> - <%=  link_to "Remove from cart", remove_from_cart_path(product), method: :delete %></li>
+        <% end %>
       </ul>
-
-    </details>
+    <% end %>
+  </details>
   <h2>All Product</h2>
   <p>You have visited this site <%= pluralize @visit_count, "times" %></p>
   <div class="products">
@@ -22,7 +25,7 @@
           <span class="price">Price: $<%= product.price %></span>
         </div>
         <% if @cart.include?(product) %>
-          <button><%= link_to "Remove", remove_from_cart_path(product), method: :delete %></button>
+          <button><%= link_to "Remove from cart", remove_from_cart_path(product), method: :delete %></button>
         <% else %>
           <button><%=  link_to "Add To Cart", add_to_cart_path(product), method: :post %></button>
         <% end %>

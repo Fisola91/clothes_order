@@ -24,15 +24,11 @@ class ProductsController < ApplicationController
 
   # Delete item from the array when item is not needed
   # To be implemented later
-  #def destroy
-    #@cart.each do |cart|
-      #if cart.destroy && @cart.length == 0
-        #redirect_to products_path
-      #elsif cart.destroy && @cart.length > 0
-        #render cart_path
-      #end
-    #end
-  #end
+  def remove_from_cart
+    id = params[:id].to_i
+    session[:cart].delete(id)
+    redirect_to root_path
+  end
 
 
   private
