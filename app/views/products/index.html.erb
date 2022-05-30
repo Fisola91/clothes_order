@@ -1,4 +1,6 @@
 <div class="home-container">
+ <h2>All Product</h2>
+  <p>You have visited this site <%= pluralize @visit_count, "times" %></p>
   <details>
     <summary>Shopping cart</summary>
     <% if @cart.empty?%>
@@ -11,8 +13,7 @@
       </ul>
     <% end %>
   </details>
-  <h2>All Product</h2>
-  <p>You have visited this site <%= pluralize @visit_count, "times" %></p>
+
   <div class="products">
     <% @products.each do |product| %>
       <div class="product">
@@ -27,7 +28,7 @@
         <% if @cart.include?(product) %>
           <button><%= link_to "Remove from cart", remove_from_cart_path(product), method: :delete %></button>
         <% else %>
-          <button><%=  link_to "Add To Cart", add_to_cart_path(product), method: :post %></button>
+          <button><%= link_to "Add To Cart", add_to_cart_path(product), method: :post %></button>
         <% end %>
       </div>
 
