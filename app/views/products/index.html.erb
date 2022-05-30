@@ -1,5 +1,13 @@
 <div class="home-container">
-    <%= debug session[:cart] %>
+    <details>
+      <summary>Shopping cart</summary>
+      <ul>
+        <% @products.each do |product| %>
+            <li><%= product.name %> - <p><%=  link_to "Remove", remove_from_cart_path(product), method: :delete %></p></li>
+          <% end %>
+      </ul>
+
+    </details>
   <h2>All Product</h2>
   <p>You have visited this site <%= pluralize @visit_count, "times" %></p>
   <div class="products">
@@ -14,9 +22,9 @@
           <span class="price">Price: $<%= product.price %></span>
         </div>
         <% if @cart.include?(product) %>
-          <p>Product is in you cart</p>
+          <button><%= link_to "Remove", remove_from_cart_path(product), method: :delete %></button>
         <% else %>
-          <p><%=  link_to "Add To Cart", add_to_cart_path(product), method: :post %></p>
+          <button><%=  link_to "Add To Cart", add_to_cart_path(product), method: :post %></button>
         <% end %>
       </div>
 
