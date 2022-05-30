@@ -5,7 +5,6 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-
   end
 
 
@@ -26,7 +25,7 @@ class ProductsController < ApplicationController
 
   def load_cart
     @count = session[:cart].count # This count number of product in the array
-    @cart = session[:cart].uniq #This avoids duplicate
+    @cart = session[:cart] #This avoids duplicate
   end
 
   #List of selected items
