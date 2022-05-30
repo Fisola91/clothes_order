@@ -1,7 +1,6 @@
 <div class="home-container">
-<h2>Shooping cart</h2>
-    <%= @cart %>
-  <h2>New Arrival</h2>
+    <%= debug session[:cart] %>
+  <h2>All Product</h2>
   <p>You have visited this site <%= pluralize @visit_count, "times" %></p>
   <div class="products">
     <% @products.each do |product| %>

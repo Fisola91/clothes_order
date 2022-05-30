@@ -13,9 +13,9 @@
 
   <body>
   <div class="nav-bar">
-    <h2><%= link_to "Online Shop", products_path%> </h2>
+    <h2><%= link_to "Online Shop", root_path%> </h2>
   <div class="nav-bag">
-    <%= link_to products_path(@products) do %>
+    <%= link_to root_path do %>
         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
     <% end %>
     <span class="bag-quantity">
