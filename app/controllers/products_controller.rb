@@ -17,12 +17,9 @@ class ProductsController < ApplicationController
 
   def load_cart
     @count = session[:cart].count # This count number of product in the array
-    @cart = session[:cart] #This avoids duplicate
-  end
 
-  #List of selected items
-  def cart
-    @carts = @cart.flatten
+    # When you give find an arrays of numbers, it gives back an aray of object of that type
+    @cart = Product.find(session[:cart])
   end
 
   # Delete item from the array when item is not needed

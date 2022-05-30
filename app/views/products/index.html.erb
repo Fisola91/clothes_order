@@ -13,7 +13,11 @@
           <span class="details"><%= product.description %></span>
           <span class="price">Price: $<%= product.price %></span>
         </div>
-        <button><%=  link_to "Add To Cart", add_to_cart_path(product), method: :post %></button>
+        <% if @cart.include?(product) %>
+          <p>Product is in you cart</p>
+        <% else %>
+          <p><%=  link_to "Add To Cart", add_to_cart_path(product), method: :post %></p>
+        <% end %>
       </div>
 
       <% end %>
